@@ -1,16 +1,19 @@
 body{
   background-image: url("/media/p5bg.png");
-  background-size: cover;
+  background-size: 100%;
   /*background-color: black;*/
 }
-
+#imageLocation{
+    width:70%;
+    height:50%;
+}
 .container{
-  width: 1400px;
-  height: 1165px;
+  height: 95%;
+  width: 55%;
   background-color: white;
-  font-size: 30px;
+  font-size: 100%;
   text-align: center;
-  padding: 30px;
+  
   border: black 3px solid;
   border-radius: 15px;
 }
