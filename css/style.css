@@ -1,0 +1,23 @@
+body{
+  background-image: url("/media/p5bg.png");
+  background-size: cover;
+  /*background-color: black;*/
+}
+
+.container{
+  width: 1400px;
+  height: 1165px;
+  background-color: white;
+  font-size: 30px;
+  text-align: center;
+  padding: 30px;
+  border: black 3px solid;
+  border-radius: 15px;
+}
+
+#feedback{
+  background-color: black;
+  color: red;
+  font-size: 30px;
+  font-weight: bold;
+}
