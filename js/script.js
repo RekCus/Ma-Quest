@@ -6,7 +6,7 @@ const imageLocation = document.getElementById('imageLocation');
 const myDescription = document.getElementById('description');
 const myInventory = document.getElementById('inventory');
 
-let currentLocation = 12;
+let currentLocation = 1;
 
 let e = "east";
 let w = "west";
@@ -18,11 +18,11 @@ let locations = [];
 locations[0] = "Café Leblanc";                  //real world
 locations[1] = "Metro Sation";                  //real world
 locations[2] = "Dead End";                      //real world
-locations[3] = "Palace R.2";                                  //meta verse
-locations[4] = "Shadow!!";                                    //meta verse
+locations[3] = "Palace R.2";                            //meta verse
+locations[4] = "Shadow!!";                            //meta verse
 //Row 2
-locations[5] = "Hallway 1";                     //real world
-locations[6] = "School Entrance";               //real world
+locations[5] = "Hallway 1";               //real world
+locations[6] = "Scool Entrance";                     //real world
 locations[7] = "Distorion";                     //real world
 locations[8] = "Palace R.1";                                  //meta verse
 locations[9] = "Palace R.3";                                  //meta verse
@@ -57,25 +57,25 @@ images[5] = "room5.jpg";
 images[6] = "room6.jpg";
 images[7] = "room7.jpg";
 images[8] = "room8.jpg";
-images[9] = "room8.jpg";
+images[9] = "room89.jpg";
 //Row 3
-images[10] = "room0.jpg";
-images[11] = "room1.jpg";
-images[12] = "room2.jpg";
-images[13] = "room3.jpg";
-images[14] = "room4.jpg";
+images[10] = "room10.jpg";
+images[11] = "room11.jpg";
+images[12] = "room12.jpg";
+images[13] = "room13.jpg";
+images[14] = "room14.jpg";
 //Row 4
-images[15] = "room5.jpg";
-images[16] = "room6.jpg";
-images[17] = "room7.jpg";
-images[18] = "room8.jpg";
-images[19] = "room8.jpg";
+images[15] = "room15.jpg";
+images[16] = "room16.jpg";
+images[17] = "room17.jpg";
+images[18] = "room18.jpg";
+images[19] = "room19.jpg";
 //Row 5
-images[20] = "room0.jpg";
-images[21] = "room1.jpg";
-images[22] = "room2.jpg";
-images[23] = "room3.jpg";
-images[24] = "room4.jpg";
+images[20] = "room20.jpg";
+images[21] = "room21.jpg";
+images[22] = "room22.jpg";
+images[23] = "room23.jpg";
+images[24] = "room24.jpg";
 
 
 directions = [];
@@ -115,19 +115,19 @@ directions[24] = [n];//
 descriptions = [];
 //Row 1
 descriptions[0] = "Sojiro: What are you still doing here, go to school";
-descriptions[1] = "u staat op een trap naar de eerste etage. Om u heen lopen studenten omhoog en omlaag";
-descriptions[2] = "u heeft gewonnen";
+descriptions[1] = "You're standing at the metro station waiting for the metro, the train is headed \"south\" ";
+descriptions[2] = "You're standing in an empty alleyway, theres nothing to see here, maybe come back later.";
 descriptions[3] = "je ziet een gouden sleutel met de letters G.A.T.E erop, je kan hem op pakken.";
 descriptions[4] = "u staat in een gang. Studenten en leraren lopen richting de klaslokalen";
 //Row 2
-descriptions[5] = "u staat in het medialab. Hier kan geexperimenteerd worden met bijvoorbeeld virtual reality brillen";
-descriptions[6] = "u staat bij de toiletten";
+descriptions[5] = "You're in the school hallway, you hear the school bell toll and people rush into their classrooms.";
+descriptions[6] = "You're at the school entrance.";
 descriptions[7] = "Ryuji: What the eff dude. I was walking trough the halls and komoshida just bumped in to me and sayd watch out where your walking kiddo. Who does he think he is the king of a castle. Morgana: KING!!! Joker that should be his distortion!";
 descriptions[8] = "u staat in het examenlokaal. Hier zijn de vierdejaars studenten bezig met het voorbereiden van hun examen";
 descriptions[9] = "u staat in het examenlokaal. Hier zijn de vierdejaars studenten bezig met het voorbereiden van hun examen";
 //Row 3
-descriptions[10] = "u staat in een kantine. Hier zitten studenten te eten of computerspelletjes te doen";
-descriptions[11] = "u staat op een trap naar de eerste etage. Om u heen lopen studenten omhoog en omlaag";
+descriptions[10] = "You're standing in the second floor hallway, theres some vending machines here.";
+descriptions[11] = "You're standing in the music club hallway, music students are making music here.";
 descriptions[12] = "Morgana: Hey Joker let's go to the palace! (Use The MetaNav app)";
 descriptions[13] = "je ziet een gouden sleutel met de letters G.A.T.E erop, je kan hem op pakken.";
 descriptions[14] = "u staat in een gang. Studenten en leraren lopen richting de klaslokalen";
@@ -272,7 +272,7 @@ function giveLocation() {
     
    
   
-  
+  document.title="Ma Quest - "+locations[currentLocation];
 }
 
 function removeFeedback() {
