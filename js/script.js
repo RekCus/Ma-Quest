@@ -6,7 +6,7 @@ const imageLocation = document.getElementById('imageLocation');
 const myDescription = document.getElementById('description');
 const myInventory = document.getElementById('inventory');
 
-let currentLocation = 1;
+let currentLocation = 12;
 
 let e = "east";
 let w = "west";
