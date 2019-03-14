@@ -22,7 +22,7 @@ locations[3] = "Palace R.2";                            //meta verse
 locations[4] = "Shadow!!";                            //meta verse
 //Row 2
 locations[5] = "Hallway 1";               //real world
-locations[6] = "Scool Entrance";                     //real world
+locations[6] = "School Entrance";                     //real world
 locations[7] = "Distorion";                     //real world
 locations[8] = "Palace R.1";                                  //meta verse
 locations[9] = "Palace R.3";                                  //meta verse
