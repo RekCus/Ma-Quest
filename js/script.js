@@ -6,7 +6,7 @@ const imageLocation = document.getElementById('imageLocation');
 const myDescription = document.getElementById('description');
 const myInventory = document.getElementById('inventory');
 
-let currentLocation = 0;
+let currentLocation = 4;
 
 let e = "east";
 let w = "west";
@@ -117,33 +117,33 @@ descriptions = [];
 descriptions[0] = "Sojiro: What are you still doing here, go to school";
 descriptions[1] = "You're standing at the metro station waiting for the metro, the train is headed \"south\" ";
 descriptions[2] = "You're standing in an empty alleyway, theres nothing to see here, maybe come back later.";
-descriptions[3] = "je ziet een gouden sleutel met de letters G.A.T.E erop, je kan hem op pakken.";
-descriptions[4] = "u staat in een gang. Studenten en leraren lopen richting de klaslokalen";
+descriptions[3] = "";
+descriptions[4] = "Morgana: JOKER!!. There's a shadow(monster) here quick take it's mask.";
 //Row 2
 descriptions[5] = "You're in the school hallway, you hear the school bell toll and people rush into their classrooms.";
 descriptions[6] = "You're at the school entrance.";
 descriptions[7] = "Ryuji: What the eff dude. I was walking trough the halls and komoshida just bumped in to me and sayd watch out where your walking kiddo."+
 " Who does he think he is the king of a castle. Morgana: KING!!! Joker that should be his distortion!";
-descriptions[8] = "u staat in het examenlokaal. Hier zijn de vierdejaars studenten bezig met het voorbereiden van hun examen";
-descriptions[9] = "u staat in het examenlokaal. Hier zijn de vierdejaars studenten bezig met het voorbereiden van hun examen";
+descriptions[8] = "";
+descriptions[9] = "";
 //Row 3
 descriptions[10] = "You're standing in the second floor hallway, theres some vending machines here.";
 descriptions[11] = "You're standing in the music club hallway, music students are making music here.";
-descriptions[12] = "Morgana: Hey Joker let's go to the palace! (Use The MetaNav app)";
-descriptions[13] = "je ziet een gouden sleutel met de letters G.A.T.E erop, je kan hem op pakken.";
-descriptions[14] = "u staat in een gang. Studenten en leraren lopen richting de klaslokalen";
+descriptions[12] = "Morgana: Hey Joker let's go to the palace! (Use The metanav)";
+descriptions[13] = "";
+descriptions[14] = "";
 //Row 4
 descriptions[15] = "You walk into the teacher lounge. nobody is here. you walked to komoshida's desk and saw a key.";
-descriptions[16] = "u staat bij de toiletten";
-descriptions[17] = "u staat in een klaslokaal. De tafels staan recht achter elkaar en voorin is een projector en een smartboard";
-descriptions[18] = "u staat in het examenlokaal. Hier zijn de vierdejaars studenten bezig met het voorbereiden van hun examen";
-descriptions[19] = "u staat in het examenlokaal. Hier zijn de vierdejaars studenten bezig met het voorbereiden van hun examen";
+descriptions[16] = "";
+descriptions[17] = "";
+descriptions[18] = "";
+descriptions[19] = "";
 //Row 5
-descriptions[20] = "u staat in een kantine. Hier zitten studenten te eten of computerspelletjes te doen";
-descriptions[21] = "u staat op een trap naar de eerste etage. Om u heen lopen studenten omhoog en omlaag";
-descriptions[22] = "u heeft gewonnen";
-descriptions[23] = "je ziet een gouden sleutel met de letters G.A.T.E erop, je kan hem op pakken.";
-descriptions[24] = "u staat in een gang. Studenten en leraren lopen richting de klaslokalen";
+descriptions[20] = "";
+descriptions[21] = "";
+descriptions[22] = "";
+descriptions[23] = "";
+descriptions[24] = "Morgana: WE DID IT JOKER!!! WE GOT THE TREASURE!";
 
 //Inventory
 let inventory =[];
@@ -205,6 +205,17 @@ function getInput(evt) {
           }
         }
       }
+      if(inputArray[1]=="mask"){
+        if(currentLocation==4){
+          var audio = new Audio('media/monster.mp3');
+          audio.volume = 0.1;
+          inventory.push('mask');
+          imageLocation.src='media/battle.jpg'
+          myDescription.innerHTML = "Mona: Joker try to attack the shadow!";
+          myPossibilities.innerHTML = "";
+          audio.play();
+        }
+      }
       
       if(inventory.length>0){
         for(let i=0;i<inventory.length;i++){
@@ -234,6 +245,8 @@ function getInput(evt) {
           }
           else{
              feedback.innerHTML = "To use the meta nav you have to say the distorion";
+             myInput.value = "";
+             setTimeout(removeFeedback, 4000);
           }
 
       }
@@ -247,7 +260,9 @@ function getInput(evt) {
               console.log('*Uses Key');
             }
         }else {
-          feedback.innerHTML = "You don't have the key!"; 
+          feedback.innerHTML = "You don't have the key!";
+          myInput.value = "";
+          setTimeout(removeFeedback, 4000); 
         }
     }        
 
@@ -289,5 +304,9 @@ function giveLocation() {
 function removeFeedback() {
   feedback.innerHTML = "";
 }
+
+
+
+
 
 giveLocation();
