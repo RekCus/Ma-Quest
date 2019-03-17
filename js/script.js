@@ -6,7 +6,7 @@ const imageLocation = document.getElementById('imageLocation');
 const myDescription = document.getElementById('description');
 const myInventory = document.getElementById('inventory');
 
-let currentLocation = 12;
+let currentLocation = 0;
 
 let e = "east";
 let w = "west";
@@ -18,11 +18,11 @@ let locations = [];
 locations[0] = "Café Leblanc";                  //real world
 locations[1] = "Metro Sation";                  //real world
 locations[2] = "Dead End";                      //real world
-locations[3] = "Palace R.2";                            //meta verse
-locations[4] = "Shadow!!";                            //meta verse
+locations[3] = "Palace R.2";                                  //meta verse
+locations[4] = "Shadow!!";                                    //meta verse
 //Row 2
-locations[5] = "Hallway 1";               //real world
-locations[6] = "School Entrance";                     //real world
+locations[5] = "Hallway 1";                     //real world
+locations[6] = "School Entrance";               //real world
 locations[7] = "Distorion";                     //real world
 locations[8] = "Palace R.1";                                  //meta verse
 locations[9] = "Palace R.3";                                  //meta verse
@@ -50,32 +50,32 @@ images = [];
 images[0] = "room0.jpg";
 images[1] = "room1.jpg";
 images[2] = "room2.jpg";
-images[3] = "room3.jpg";
-images[4] = "room4.jpg";
+images[3] = "room3.jpg";//
+images[4] = "room4.jpg";//
 //Row 2
 images[5] = "room5.jpg";
 images[6] = "room6.jpg";
 images[7] = "room7.jpg";
-images[8] = "room8.jpg";
-images[9] = "room89.jpg";
+images[8] = "room8.jpg";//
+images[9] = "room89.jpg";//
 //Row 3
 images[10] = "room10.jpg";
 images[11] = "room11.jpg";
 images[12] = "room12.jpg";
-images[13] = "room13.jpg";
-images[14] = "room14.jpg";
+images[13] = "room13.jpg";//
+images[14] = "room14.jpg";//
 //Row 4
 images[15] = "room15.jpg";
 images[16] = "room16.jpg";
 images[17] = "room17.jpg";
-images[18] = "room18.jpg";
-images[19] = "room19.jpg";
+images[18] = "room18.jpg";//
+images[19] = "room19.jpg";//
 //Row 5
 images[20] = "room20.jpg";
 images[21] = "room21.jpg";
 images[22] = "room22.jpg";
-images[23] = "room23.jpg";
-images[24] = "room24.jpg";
+images[23] = "room23.jpg";//
+images[24] = "room24.jpg";//
 
 
 directions = [];
@@ -122,7 +122,8 @@ descriptions[4] = "u staat in een gang. Studenten en leraren lopen richting de k
 //Row 2
 descriptions[5] = "You're in the school hallway, you hear the school bell toll and people rush into their classrooms.";
 descriptions[6] = "You're at the school entrance.";
-descriptions[7] = "Ryuji: What the eff dude. I was walking trough the halls and komoshida just bumped in to me and sayd watch out where your walking kiddo. Who does he think he is the king of a castle. Morgana: KING!!! Joker that should be his distortion!";
+descriptions[7] = "Ryuji: What the eff dude. I was walking trough the halls and komoshida just bumped in to me and sayd watch out where your walking kiddo."+
+" Who does he think he is the king of a castle. Morgana: KING!!! Joker that should be his distortion!";
 descriptions[8] = "u staat in het examenlokaal. Hier zijn de vierdejaars studenten bezig met het voorbereiden van hun examen";
 descriptions[9] = "u staat in het examenlokaal. Hier zijn de vierdejaars studenten bezig met het voorbereiden van hun examen";
 //Row 3
@@ -132,7 +133,7 @@ descriptions[12] = "Morgana: Hey Joker let's go to the palace! (Use The MetaNav 
 descriptions[13] = "je ziet een gouden sleutel met de letters G.A.T.E erop, je kan hem op pakken.";
 descriptions[14] = "u staat in een gang. Studenten en leraren lopen richting de klaslokalen";
 //Row 4
-descriptions[15] = "u staat in het medialab. Hier kan geexperimenteerd worden met bijvoorbeeld virtual reality brillen";
+descriptions[15] = "You walk into the teacher lounge. nobody is here. you walked to komoshida's desk and saw a key.";
 descriptions[16] = "u staat bij de toiletten";
 descriptions[17] = "u staat in een klaslokaal. De tafels staan recht achter elkaar en voorin is een projector en een smartboard";
 descriptions[18] = "u staat in het examenlokaal. Hier zijn de vierdejaars studenten bezig met het voorbereiden van hun examen";
@@ -178,7 +179,7 @@ function getInput(evt) {
         
       }
         else {
-        feedback.innerHTML = "dat mag niet";
+        feedback.innerHTML = "You Can't Do That";
         setTimeout(removeFeedback, 2000);
 
       }
@@ -189,7 +190,7 @@ function getInput(evt) {
     if (inputArray[0] == "take") {
       console.log('ga wat pakken');
       myInput.value = "";
-      if(currentLocation==3){
+      if(currentLocation==15){
         if(inputArray[1]=='key') {
           if(!inventory.includes('key',-3)){
            
@@ -235,10 +236,20 @@ function getInput(evt) {
              feedback.innerHTML = "To use the meta nav you have to say the distorion";
           }
 
+      }
         }
       }
-    
-    }
+    if(inputArray[1]=="key") {
+          if(inventory[0]=="key"){
+          if(currentLocation==19){
+              currentLocation=24;
+              giveLocation();
+              console.log('*Uses Key');
+            }
+        }else {
+          feedback.innerHTML = "You don't have the key!"; 
+        }
+    }        
 
     if (inputArray[0] != "go" && inputArray[0] != "take" && inputArray[0] != "use"){
       feedback.innerHTML = "Possible commands are: go, take, use and help";
