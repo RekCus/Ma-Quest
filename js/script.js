@@ -6,12 +6,14 @@ const imageLocation = document.getElementById('imageLocation');
 const myDescription = document.getElementById('description');
 const myInventory = document.getElementById('inventory');
 
-let currentLocation = 4;
+let currentLocation = 1;
 
 let e = "east";
 let w = "west";
 let n = "north";
 let s = "south";
+
+let shadowGone = false;
 
 let locations = [];
 //Row 1
@@ -207,13 +209,15 @@ function getInput(evt) {
       }
       if(inputArray[1]=="mask"){
         if(currentLocation==4){
-          var audio = new Audio('media/monster.mp3');
-          audio.volume = 0.1;
-          inventory.push('mask');
-          imageLocation.src='media/battle.jpg'
-          myDescription.innerHTML = "Mona: Joker try to attack the shadow!";
-          myPossibilities.innerHTML = "";
-          audio.play();
+          if(!inventory.includes('mask',-3)){       
+             ambush();
+             }
+             else{
+               feedback.innerHTML = "You already have the mask";
+               myInput.value = "";
+               setTimeout(removeFeedback, 4000);
+               }
+         
         }
       }
       
@@ -231,6 +235,12 @@ function getInput(evt) {
         
       
     }
+    if(inputArray[0] == "attack"){
+      attack();
+      currentLocation=9;
+      giveLocation();
+    }
+    
     if (inputArray[0] == "use"){
       console.log('ga wat gebruiken');
       myInput.value = "";
@@ -266,13 +276,19 @@ function getInput(evt) {
         }
     }        
 
-    if (inputArray[0] != "go" && inputArray[0] != "take" && inputArray[0] != "use"){
+    if (inputArray[0] != "go" && inputArray[0] != "take" && inputArray[0] != "use" && inputArray[0] != "attack"){
       feedback.innerHTML = "Possible commands are: go, take, use and help";
       myInput.value = "";
       setTimeout(removeFeedback, 4000);
     }
 
   }
+}
+
+if(shadowGone==true){
+  descriptions[4] ="It's clear";
+  locations[4] = "Palace Hallway";  
+
 }
 
 function giveLocation() {
@@ -304,6 +320,26 @@ function giveLocation() {
 function removeFeedback() {
   feedback.innerHTML = "";
 }
+
+function ambush(){
+  var audio = new Audio('media/monster.mp3');
+  audio.volume = 0.1;
+  inventory.push('mask');
+  imageLocation.src='media/battle.jpg'
+  myDescription.innerHTML = "Mona: Joker, try to attack the shadow!";
+  myPossibilities.innerHTML = "";
+  audio.play();
+}
+
+function attack(){
+    shadowGone = true;
+   // imageLocation.src='media/room4.jpg'
+}
+
+ if(currentLocation==0){
+  var audio = new Audio('media/monster.mp3');
+   audio.play();
+ }
 
 
 
