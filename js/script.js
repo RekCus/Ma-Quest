@@ -232,7 +232,7 @@ function getInput(evt) {
       }
       if(inventory.length>0){
         for(let i=0;i<inventory.length;i++){
-          text+= inventory[i]+" ";
+          text+= inventory[i]+", ";
           myInventory.innerHTML ="Your inventory contains: "+text;
           console.log(inventory);
           console.log(text);
@@ -325,7 +325,7 @@ function giveLocation() {
   myPossibilities.innerHTML = myDirections;
   if(inventory.length>0){
     for(let i=0;i<inventory.length;i++){
-      text+= inventory[i]+"";
+      text+= inventory[i]+", ";
       myInventory.innerHTML ="Your inventory contains: "+text;
     }
     
