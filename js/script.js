@@ -132,7 +132,7 @@ descriptions[5] = "You're in the school hallway, you hear the school bell toll a
 descriptions[6] = "You're at the school entrance.";
 descriptions[7] = "Ryuji: What the eff dude. I was walking trough the halls and komoshida just bumped in to me and sayd watch out where your walking kiddo."+
 " Who does he think he is the king of a castle. Morgana: KING!!! Joker that should be his distortion!";
-descriptions[8] = "you see nothing of intrest. just a bookcase";
+descriptions[8] = "you see nothing of intrest. just a bookshelf";
 descriptions[9] = "Skull: Geez that shadow almost got us. Let's keep going";
 //Row 3
 descriptions[10] = "You're standing in the second floor hallway, theres some vending machines here.";
