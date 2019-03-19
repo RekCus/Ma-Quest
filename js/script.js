@@ -355,7 +355,7 @@ function ambush(){
 function attack(){
     atc++;
     myDescription.innerHTML = "You attack the shadow. it lost half of it's health. Mona: Looking Cool Joker!";
-   // imageLocation.src='media/room4.jpg'
+
 }  
  function playVic(){
      
