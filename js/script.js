@@ -263,7 +263,8 @@ function getInput(evt) {
       currentLocation = 9;
       giveLocation();
       audiov.pause();
-      audiov.currentTime = 0;}
+      audiov.currentTime = 0;
+      atc = 0;}
     }
     
     if (inputArray[0] == "use"){
